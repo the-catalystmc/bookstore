@@ -3,7 +3,9 @@ import { PropTypes } from 'prop-types';
 import '../scss/style.scss';
 
 const Book = (props) => {
-  const { genre, title, author } = props;
+  const { book } = props;
+
+  const { genre, title, author } = book;
 
   return (
     <div className="Book-Container">
