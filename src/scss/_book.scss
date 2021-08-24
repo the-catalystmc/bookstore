@@ -1,0 +1,28 @@
+.Book-Container {
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  border: 2px solid black;
+}
+
+.Book-Edits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Edit-Item {
+  margin-right: 5px;
+}
+
+.Book-Stats {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+.Partition {
+  border-left: 1px solid black;
+  height: 80%;
+  align-self: center;
+}
