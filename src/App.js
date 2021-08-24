@@ -6,6 +6,7 @@ import {
 import store from './redux/configureStore';
 import NavBar from './components/NavBar';
 import Categories from './components/Categories';
+import Books from './components/Books';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <div className="App">
             <NavBar />
             <Route path="/categories"><Categories text="Under Construction." /></Route>
+            <Route path="/" exact ><Books /></Route>
           </div>
         </Switch>
       </Router>
