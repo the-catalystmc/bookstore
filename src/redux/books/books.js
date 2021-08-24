@@ -3,19 +3,17 @@ const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
 
 // ACTIONS
-export const addBook = () => {
-  return {
+export const addBook = (payload) => (
+  {
     type: ADD_BOOK,
     payload,
-  }
-}
+  });
 
-export const removeBook = () => {
-  return {
+export const removeBook = (payload) => (
+  {
     type: REMOVE_BOOK,
     payload,
-  }
-}
+  });
 
 // REDUCERS
 export const initialState = [
@@ -24,8 +22,8 @@ export const initialState = [
     title: 'Lord of The Flies',
     author: 'William Golding',
     genre: 'Drama',
-  }
-]
+  },
+];
 
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -33,14 +31,14 @@ const booksReducer = (state = initialState, action) => {
       return [
         ...state,
         action.payload,
-      ]
+      ];
 
-      case REMOVE_BOOK:
-        return state.filter((item) => booksReducer.id !== action.payload.id);
+    case REMOVE_BOOK:
+      return state.filter((item) => item.id !== action.payload.id);
 
     default:
       return state;
   }
-}
+};
 
 export default booksReducer;
