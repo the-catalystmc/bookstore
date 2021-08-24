@@ -4,7 +4,6 @@ import {
   Route, BrowserRouter as Router, Switch,
 } from 'react-router-dom';
 import store from './redux/configureStore';
-import NavBar from './components/NavBar';
 import Categories from './components/Categories';
 import Books from './components/Books';
 
