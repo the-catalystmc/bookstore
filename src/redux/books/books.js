@@ -1,4 +1,4 @@
-// CNSTANTS
+// CONSTANTS
 const ADD_BOOK = 'ADD_BOOK';
 const REMOVE_BOOK = 'REMOVE_BOOK';
 
@@ -16,14 +16,7 @@ export const removeBook = (payload) => (
   });
 
 // REDUCERS
-export const initialState = [
-  {
-    id: '1',
-    title: 'Lord of The Flies',
-    author: 'William Golding',
-    genre: 'Drama',
-  },
-];
+export const initialState = [];
 
 const booksReducer = (state = initialState, action) => {
   switch (action.type) {

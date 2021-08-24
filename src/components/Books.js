@@ -1,16 +1,18 @@
-import React from 'react';
+import { useSelector } from 'react-redux';
 import Book from './Book';
 import Form from './Form';
 
-const Books = () => (
-  <div>
-    <Book
-      genre="Drama"
-      title="Lord of The Flies"
-      author="William Golding"
-    />
-    <Form />
-  </div>
-);
+const Books = () => {
+  const allBooks = useSelector((state) => state.books);
+
+  const updateBooks = allBooks.map((book) => <Book key={book.id} book={book} />);
+
+  return (
+    <div>
+      <ul>{updateBooks}</ul>
+      <Form />
+    </div>
+  );
+};
 
 export default Books;

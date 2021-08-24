@@ -1,9 +1,25 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import '../scss/style.scss';
+import { removeBook } from '../redux/books/books';
 
 const Book = (props) => {
-  const { genre, title, author } = props;
+  const { book } = props;
+
+  const {
+    id, genre, title, author,
+  } = book;
+
+  const dispatch = useDispatch();
+
+  const removesBook = () => {
+    dispatch(
+      removeBook({
+        id,
+      }),
+    );
+  };
 
   return (
     <div className="Book-Container">
@@ -12,11 +28,11 @@ const Book = (props) => {
         <h3 className="Title">{title}</h3>
         <p className="Author">{author}</p>
         <div className="Book-Edits">
-          <p className="Edit-Item">Comments</p>
+          <button type="button" className="Edit-Item">Comments</button>
           <span className="Edit-Item">|</span>
-          <p className="Edit-Item">Remove</p>
+          <button type="button" className="Edit-Item" onClick={removesBook}>Remove</button>
           <span className="Edit-Item">|</span>
-          <p className="Edit-Item">Edit</p>
+          <button type="button" className="Edit-Item">Edit</button>
         </div>
       </div>
       <div className="Book-Stats">
