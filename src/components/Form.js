@@ -14,20 +14,23 @@ const Form = () => {
   const authorChanged = (e) => setAuthor(e.target.value);
   const genreChanged = (e) => setGenre(e.target.value);
 
-  const submitBookToStore = () => {
-    const newBook = {
-      id: uuidv4(),
-      title,
-      author,
-      genre,
-    };
+  const submitBookToStore = (e) => {
+    e.preventDefault();
+    if (title && genre && author) {
+      const newBook = {
+        id: uuidv4(),
+        title,
+        author,
+        genre,
+      };
 
-    // dispatch an action and pass it the newBook object (your action's payload)
-    dispatch(addBook(newBook));
+      // dispatch an action and pass it the newBook object (your action's payload)
+      dispatch(addBook(newBook));
 
-    setTitle('');
-    setAuthor('');
-    setGenre('Drama');
+      setTitle('');
+      setAuthor('');
+      setGenre('Drama');
+    }
   };
 
   return (
