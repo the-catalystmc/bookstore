@@ -1,12 +1,16 @@
 import React from 'react';
 import Book from './Book';
+import Form from './Form';
 
 const Books = () => (
-  <Book
-    genre="Drama"
-    title="Lord of The Flies"
-    author="William Golding"
-  />
+  <div>
+    <Book
+      genre="Drama"
+      title="Lord of The Flies"
+      author="William Golding"
+    />
+    <Form />
+  </div>
 );
 
 export default Books;
