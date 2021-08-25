@@ -31,7 +31,16 @@ export const getBookRequest = () => {
 
   export const fetchBooks = () => {
     return (dispatch) => {
+      dispatch(getBookRequest);
       axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books')
+      .then(response => {
+        const books = response.data
+        dispatch(getBookSuccess(books))
+      })
+      .catch(error => {
+        const errorMsg = error.message
+        dispatch(getBookFailure(error))
+      })
     }
   }
 
