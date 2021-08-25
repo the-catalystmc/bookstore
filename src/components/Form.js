@@ -1,37 +1,37 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { v4 as uuidv4 } from 'uuid';
-import { addBook } from '../redux/books/books';
+// import { useDispatch } from 'react-redux';
+// import { v4 as uuidv4 } from 'uuid';
+// import { addBook } from '../redux/books/books';
 
 const Form = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [genre, setGenre] = useState('Drama');
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const titleChanged = (e) => setTitle(e.target.value);
   const authorChanged = (e) => setAuthor(e.target.value);
   const genreChanged = (e) => setGenre(e.target.value);
 
-  const submitBookToStore = (e) => {
-    e.preventDefault();
-    if (title && genre && author) {
-      const newBook = {
-        id: uuidv4(),
-        title,
-        author,
-        genre,
-      };
+  // const submitBookToStore = (e) => {
+  //   e.preventDefault();
+  //   if (title && genre && author) {
+  //     const newBook = {
+  //       id: uuidv4(),
+  //       title,
+  //       author,
+  //       genre,
+  //     };
 
-      // dispatch an action and pass it the newBook object (your action's payload)
-      dispatch(addBook(newBook));
+  //     dispatch an action and pass it the newBook object (your action's payload)
+  //     dispatch(addBook(newBook));
 
-      setTitle('');
-      setAuthor('');
-      setGenre('Drama');
-    }
-  };
+  //     setTitle('');
+  //     setAuthor('');
+  //     setGenre('Drama');
+  //   }
+  // };
 
   return (
     <div>
@@ -43,7 +43,7 @@ const Form = () => {
           <option value="Drama">Drama</option>
           <option value="Action">Action</option>
         </select>
-        <input type="submit" value="ADD BOOK" onClick={submitBookToStore} />
+        <input type="submit" value="ADD BOOK" />
       </form>
     </div>
   );

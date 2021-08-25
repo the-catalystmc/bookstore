@@ -2,7 +2,7 @@ import React from 'react';
 import {
   Link,
 } from 'react-router-dom';
-import '../scss/style.scss';
+// import '../scss/style.scss';
 
 const NavBar = () => (
   <div className="Nav-Container">
