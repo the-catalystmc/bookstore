@@ -1,37 +1,103 @@
-// CONSTANTS
-const ADD_BOOK = 'ADD_BOOK';
-const REMOVE_BOOK = 'REMOVE_BOOK';
+import Books from "../../components/Books";
 
-// ACTIONS
-export const addBook = (payload) => (
-  {
-    type: ADD_BOOK,
-    payload,
-  });
+// ACTION TYPES
+// const REMOVE_BOOK_SUCCESS = 'REMOVE_BOOK_SUCCESS';
+// const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS';
+const GET_BOOK_REQUEST = 'GET_BOOK_REQUEST';
+const GET_BOOK_SUCCESS = 'GET_BOOK_SUCCESS';
+const GET_BOOK_FAILURE = 'GET_BOOK_FAILURE';
 
-export const removeBook = (payload) => (
-  {
-    type: REMOVE_BOOK,
-    payload,
-  });
+// ACTION TYPES
+export const getBookRequest = () => {
+  return {
+    type: GET_BOOK_REQUEST,
+  }};
+
+  export const getBookSuccess = (books) => {
+    return {
+      type: GET_BOOK_SUCCESS,
+      payload: books,
+    }
+  };
+
+  export const getBookFailure = (error) => {
+    return {
+      type: GET_BOOK_FAILURE,
+      payload: error,
+    }
+  };
 
 // REDUCERS
-export const initialState = [];
+export const initialState = {
+  loading: false,
+  books: [],
+  error: '',
+};
 
 const booksReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case ADD_BOOK:
-      return [
-        ...state,
-        action.payload,
-      ];
+    switch (action.type) {
+      case GET_BOOK_REQUEST:
+        return {
+          ...state,
+          loading: true,
+        };
 
-    case REMOVE_BOOK:
-      return state.filter((item) => item.id !== action.payload.id);
+        case GET_BOOK_SUCCESS:
+          return {
+            loading: false,
+            books: action.payload,
+            error: '',
+          };
 
-    default:
-      return state;
-  }
-};
+        case GET_BOOK_FAILURE:
+          return {
+            loading: false,
+            books: [],
+            error: action.payload,
+          }
+  
+      // case REMOVE_BOOK:
+      //   return state.filter((item) => item.id !== action.payload.id);
+  
+      default:
+        return state;
+    }
+  };
+
+// // CONSTANTS
+// const ADD_BOOK = 'ADD_BOOK';
+// const REMOVE_BOOK = 'REMOVE_BOOK';
+
+// // ACTIONS
+// export const addBook = (payload) => (
+//   {
+//     type: ADD_BOOK,
+//     payload,
+//   });
+
+// export const removeBook = (payload) => (
+//   {
+//     type: REMOVE_BOOK,
+//     payload,
+//   });
+
+// // REDUCERS
+// export const initialState = [];
+
+// const booksReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case ADD_BOOK:
+//       return [
+//         ...state,
+//         action.payload,
+//       ];
+
+//     case REMOVE_BOOK:
+//       return state.filter((item) => item.id !== action.payload.id);
+
+//     default:
+//       return state;
+//   }
+// };
 
 export default booksReducer;
