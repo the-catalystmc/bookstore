@@ -1,5 +1,7 @@
+import axios from 'axios';
 import Books from "../../components/Books";
 
+//https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books
 // ACTION TYPES
 // const REMOVE_BOOK_SUCCESS = 'REMOVE_BOOK_SUCCESS';
 // const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS';
@@ -7,7 +9,7 @@ const GET_BOOK_REQUEST = 'GET_BOOK_REQUEST';
 const GET_BOOK_SUCCESS = 'GET_BOOK_SUCCESS';
 const GET_BOOK_FAILURE = 'GET_BOOK_FAILURE';
 
-// ACTION TYPES
+// ACTION CREATORS
 export const getBookRequest = () => {
   return {
     type: GET_BOOK_REQUEST,
@@ -26,6 +28,12 @@ export const getBookRequest = () => {
       payload: error,
     }
   };
+
+  export const fetchBooks = () => {
+    return (dispatch) => {
+      axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books')
+    }
+  }
 
 // REDUCERS
 export const initialState = {
@@ -64,6 +72,9 @@ const booksReducer = (state = initialState, action) => {
     }
   };
 
+export default booksReducer;
+
+
 // // CONSTANTS
 // const ADD_BOOK = 'ADD_BOOK';
 // const REMOVE_BOOK = 'REMOVE_BOOK';
@@ -99,5 +110,3 @@ const booksReducer = (state = initialState, action) => {
 //       return state;
 //   }
 // };
-
-export default booksReducer;
