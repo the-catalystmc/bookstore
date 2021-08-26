@@ -1,7 +1,7 @@
 import React from 'react';
 // import { useDispatch } from 'react-redux';
 import { PropTypes } from 'prop-types';
-// import '../scss/style.scss';
+import '../scss/style.scss';
 // import { removeBook } from '../redux/books/books';
 
 const Book = (props) => {

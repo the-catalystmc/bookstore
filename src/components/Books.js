@@ -6,7 +6,6 @@ import Form from './Form';
 
 const Books = () => {
   const allBooks = useSelector((state) => state.books.books);
-  console.log(allBooks);
   const booksStatus = useSelector((state) => state.books.loading);
   const dispatch = useDispatch();
 
@@ -14,7 +13,7 @@ const Books = () => {
     if (booksStatus === false) {
       dispatch(fetchBooks());
     }
-  }, [booksStatus, dispatch]);
+  }, []);
 
   const updateBooks = allBooks.map((book) => <Book key={book.id} book={book} />);
 
