@@ -1,10 +1,11 @@
+/* eslint-disable camelcase */
+// import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-// import Books from '../../components/Books';
 
 // https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books
 // ACTION TYPES
 // const REMOVE_BOOK_SUCCESS = 'REMOVE_BOOK_SUCCESS';
-// const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS';
+const ADD_BOOK_SUCCESS = 'bookstore/books/addBook/fulfilled';
 const GET_BOOK_REQUEST = 'GET_BOOK_REQUEST';
 const GET_BOOK_SUCCESS = 'GET_BOOK_SUCCESS';
 const GET_BOOK_FAILURE = 'GET_BOOK_FAILURE';
@@ -22,6 +23,11 @@ export const getBookSuccess = (books) => ({
 export const getBookFailure = (error) => ({
   type: GET_BOOK_FAILURE,
   payload: error,
+});
+
+export const addBookSuccess = (payload) => ({
+  type: ADD_BOOK_SUCCESS,
+  payload,
 });
 
 export const fetchBooks = () => (dispatch) => {
@@ -42,6 +48,55 @@ export const fetchBooks = () => (dispatch) => {
     });
 };
 
+// export const addBook = createAsyncThunk(
+//   'bookstore/books/addBook',
+//   async (book) => {
+//     console.log(book);
+//     const { item_id, category, title } = book;
+//     const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books', {
+//       item_id,
+//       title,
+//       category,
+//     }, {
+//       Accept: 'application/json',
+//       'Content-Type': 'application/json',
+//     });
+//     if (response.ok) {
+//       return {
+//         id: item_id,
+//         title,
+//         category,
+//         author: 'Jane Doe',
+//       };
+//     }
+//     return {};
+//   },
+// );
+
+export const addBook = () => (dispatch, book) => {
+  const { item_id, category, title } = book;
+  console.log(book);
+  axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books', {
+    item_id,
+    title,
+    category,
+  },
+  {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+  })
+    .then((response) => {
+      if (response.ok) {
+        dispatch(addBookSuccess({
+          id: item_id,
+          title,
+          category,
+          author: 'Jane Doe',
+        }));
+      }
+    });
+};
+
 // REDUCERS
 export const initialState = {
   loading: false,
@@ -57,7 +112,7 @@ const booksReducer = (state = initialState, action) => {
     case GET_BOOK_SUCCESS:
       return {
         ...state,
-        loading: false,
+        loading: true,
         books: [...state.books, ...action.payload],
         error: '',
       };
@@ -68,6 +123,9 @@ const booksReducer = (state = initialState, action) => {
         books: [],
         error: action.payload,
       };
+
+    case ADD_BOOK_SUCCESS:
+      return { ...state, books: [...state.books, action.payload] };
 
       // case REMOVE_BOOK:
       //   return state.filter((item) => item.id !== action.payload.id);
