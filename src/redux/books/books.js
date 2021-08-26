@@ -4,8 +4,8 @@ import axios from 'axios';
 
 // https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books
 // ACTION TYPES
-// const REMOVE_BOOK_SUCCESS = 'REMOVE_BOOK_SUCCESS';
-const ADD_BOOK_SUCCESS = 'bookstore/books/addBook/fulfilled';
+const REMOVE_BOOK_SUCCESS = 'REMOVE_BOOK_SUCCESS';
+const ADD_BOOK_SUCCESS = 'ADD_BOOK_SUCCESS';
 const GET_BOOK_REQUEST = 'GET_BOOK_REQUEST';
 const GET_BOOK_SUCCESS = 'GET_BOOK_SUCCESS';
 const GET_BOOK_FAILURE = 'GET_BOOK_FAILURE';
@@ -30,6 +30,11 @@ export const addBookSuccess = (payload) => ({
   payload,
 });
 
+export const removeBookSuccess = (payload) => ({
+  type: REMOVE_BOOK_SUCCESS,
+  payload,
+});
+
 export const fetchBooks = () => (dispatch) => {
   dispatch(getBookRequest);
   axios.get('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books')
@@ -48,34 +53,8 @@ export const fetchBooks = () => (dispatch) => {
     });
 };
 
-// export const addBook = createAsyncThunk(
-//   'bookstore/books/addBook',
-//   async (book) => {
-//     console.log(book);
-//     const { item_id, category, title } = book;
-//     const response = await axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books', {
-//       item_id,
-//       title,
-//       category,
-//     }, {
-//       Accept: 'application/json',
-//       'Content-Type': 'application/json',
-//     });
-//     if (response.ok) {
-//       return {
-//         id: item_id,
-//         title,
-//         category,
-//         author: 'Jane Doe',
-//       };
-//     }
-//     return {};
-//   },
-// );
-
 export const addBook = (newBook) => (dispatch) => {
   const { item_id, category, title } = newBook;
-  console.log(newBook);
   axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books', {
     item_id,
     title,
@@ -88,6 +67,13 @@ export const addBook = (newBook) => (dispatch) => {
       author: 'Jane Doe',
     }));
   });
+};
+
+export const removeBook = (id) => (dispatch) => {
+  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books/${id}`)
+    .then(() => {
+      dispatch(removeBookSuccess(id));
+    });
 };
 
 // REDUCERS
@@ -120,8 +106,11 @@ const booksReducer = (state = initialState, action) => {
     case ADD_BOOK_SUCCESS:
       return { ...state, books: [...state.books, action.payload] };
 
-      // case REMOVE_BOOK:
-      //   return state.filter((item) => item.id !== action.payload.id);
+    case REMOVE_BOOK_SUCCESS:
+      return {
+        ...state,
+        books: [...state.books.filter((book) => book.id !== action.payload.id)],
+      };
 
     default:
       return state;
