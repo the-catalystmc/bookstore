@@ -70,10 +70,19 @@ export const addBook = (newBook) => (dispatch) => {
 };
 
 export const removeBook = (id) => (dispatch) => {
-  axios.delete(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books/${id}`)
+  fetch(`https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books/${id.id}`, {
+    method: 'DELETE',
+    body: JSON.stringify({
+      item_id: id,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  })
     .then(() => {
       dispatch(removeBookSuccess(id));
     });
+  console.log(id.id);
 };
 
 // REDUCERS
