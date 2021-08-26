@@ -82,7 +82,6 @@ export const removeBook = (id) => (dispatch) => {
     .then(() => {
       dispatch(removeBookSuccess(id));
     });
-  console.log(id.id);
 };
 
 // REDUCERS
