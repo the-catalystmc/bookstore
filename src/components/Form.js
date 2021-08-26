@@ -5,31 +5,25 @@ import { addBook } from '../redux/books/books';
 
 const Form = () => {
   const [title, setTitle] = useState('');
-  const [author, setAuthor] = useState('');
-  const [genre, setGenre] = useState('Drama');
+  const [category, setCategory] = useState('Drama');
 
   const dispatch = useDispatch();
 
   const titleChanged = (e) => setTitle(e.target.value);
-  const authorChanged = (e) => setAuthor(e.target.value);
-  const genreChanged = (e) => setGenre(e.target.value);
+  const categoryChanged = (e) => setCategory(e.target.value);
 
   const submitBookToStore = (e) => {
     e.preventDefault();
-    if (title && genre && author) {
-      const newBook = {
-        id: uuidv4(),
-        title,
-        author,
-        genre,
-      };
-
-      // dispatch an action and pass it the newBook object (your action's payload)
-      dispatch(addBook(newBook));
-
+    if (title && category) {
+      dispatch(
+        addBook({
+          item_id: uuidv4(),
+          category,
+          title,
+        }),
+      );
       setTitle('');
-      setAuthor('');
-      setGenre('Drama');
+      setCategory('Drama');
     }
   };
 
@@ -38,8 +32,7 @@ const Form = () => {
       <form>
         <h2>ADD NEW BOOK</h2>
         <input type="text" name="title" value={title} onChange={titleChanged} placeholder="Title" required />
-        <input type="text" name="author" value={author} onChange={authorChanged} placeholder="Author" required />
-        <select name="genre" value={genre} onChange={genreChanged}>
+        <select name="category" value={category} onChange={categoryChanged}>
           <option value="Drama">Drama</option>
           <option value="Action">Action</option>
         </select>
