@@ -73,28 +73,21 @@ export const fetchBooks = () => (dispatch) => {
 //   },
 // );
 
-export const addBook = () => (dispatch, book) => {
-  const { item_id, category, title } = book;
-  console.log(book);
+export const addBook = (newBook) => (dispatch) => {
+  const { item_id, category, title } = newBook;
+  console.log(newBook);
   axios.post('https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/Cr80pbkuf1RrEQZCSqfj/books', {
     item_id,
     title,
     category,
-  },
-  {
-    Accept: 'application/json',
-    'Content-Type': 'application/json',
-  })
-    .then((response) => {
-      if (response.ok) {
-        dispatch(addBookSuccess({
-          id: item_id,
-          title,
-          category,
-          author: 'Jane Doe',
-        }));
-      }
-    });
+  }).then(() => {
+    dispatch(addBookSuccess({
+      id: item_id,
+      title,
+      category,
+      author: 'Jane Doe',
+    }));
+  });
 };
 
 // REDUCERS
