@@ -38,7 +38,7 @@ const Book = (props) => {
       <div className="Book-Stats">
         <div className="Completion">
           <div className="Circle" />
-          <div>
+          <div className="Book-Stats1">
             <p className="Percent">100%</p>
             <p className="Status">Completed</p>
           </div>
