@@ -39,15 +39,15 @@ const Book = (props) => {
         <div className="Completion">
           <div className="Circle" />
           <div>
-            <p>64%</p>
-            <p>Completed</p>
+            <p className="Percent">64%</p>
+            <p className="Status">Completed</p>
           </div>
         </div>
         <span className="Partition" />
         <div className="Chapter-Stats">
-          <p>CURRENT CHAPTER</p>
-          <p>Chapter 17</p>
-          <button type="button">UPDATE PROGRESS</button>
+          <p className="Current-Chapter">CURRENT CHAPTER</p>
+          <p className="Chapter-Number">Chapter 17</p>
+          <button className="Update-Progress" type="button">UPDATE PROGRESS</button>
         </div>
       </div>
     </div>
