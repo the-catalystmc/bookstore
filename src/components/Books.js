@@ -18,8 +18,8 @@ const Books = () => {
   const updateBooks = allBooks.map((book) => <Book key={book.id} book={book} />);
 
   return (
-    <div>
-      <ul>{updateBooks}</ul>
+    <div className="Main-Holder">
+      <ul className="Books-Holder">{updateBooks}</ul>
       <Form />
     </div>
   );

@@ -8,7 +8,7 @@ const Book = (props) => {
   const { book } = props;
 
   const {
-    id, genre, title, author,
+    id, category, title, author,
   } = book;
 
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Book = (props) => {
   return (
     <div className="Book-Container">
       <div className="Book-Info">
-        <p className="Genre">{genre}</p>
+        <p className="Genre">{category}</p>
         <h3 className="Title">{title}</h3>
         <p className="Author">{author}</p>
         <div className="Book-Edits">
