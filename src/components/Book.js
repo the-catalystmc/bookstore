@@ -8,7 +8,7 @@ const Book = (props) => {
   const { book } = props;
 
   const {
-    id, genre, title, author,
+    id, category, title, author,
   } = book;
 
   const dispatch = useDispatch();
@@ -24,13 +24,13 @@ const Book = (props) => {
   return (
     <div className="Book-Container">
       <div className="Book-Info">
-        <p className="Genre">{genre}</p>
+        <p className="Genre">{category}</p>
         <h3 className="Title">{title}</h3>
         <p className="Author">{author}</p>
         <div className="Book-Edits">
           <button type="button" className="Edit-Item">Comments</button>
           <span className="Edit-Item">|</span>
-          <button type="button" className="Edit-Item" onClick={removesBook}>Remove</button>
+          <button type="button" className="Edit-Item Edit-Item2" onClick={removesBook}>Remove</button>
           <span className="Edit-Item">|</span>
           <button type="button" className="Edit-Item">Edit</button>
         </div>
@@ -38,16 +38,16 @@ const Book = (props) => {
       <div className="Book-Stats">
         <div className="Completion">
           <div className="Circle" />
-          <div>
-            <p>64%</p>
-            <p>Completed</p>
+          <div className="Book-Stats1">
+            <p className="Percent">100%</p>
+            <p className="Status">Completed</p>
           </div>
         </div>
         <span className="Partition" />
         <div className="Chapter-Stats">
-          <p>CURRENT CHAPTER</p>
-          <p>Chapter 17</p>
-          <button type="button">UPDATE PROGRESS</button>
+          <p className="Current-Chapter">CURRENT CHAPTER</p>
+          <p className="Chapter-Number">Chapter 17</p>
+          <button className="Update-Progress" type="button">UPDATE PROGRESS</button>
         </div>
       </div>
     </div>

@@ -9,6 +9,12 @@ A bookstore app that displays books. It also allows users to add and remove book
 - ![CSSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 - ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
+# Screenshots
+![screenshot](./download.jpeg)
+
+## Live Demo
+You can see my page live here: 
+[Check it out!](https://the-catalystmc.github.io/bookstore/)
 
 ## Getting Started
 

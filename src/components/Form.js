@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
+import '../scss/style.scss';
 import { addBook } from '../redux/books/books';
 
 const Form = () => {
@@ -28,15 +29,15 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="Form">
       <form>
-        <h2>ADD NEW BOOK</h2>
-        <input type="text" name="title" value={title} onChange={titleChanged} placeholder="Title" required />
-        <select name="category" value={category} onChange={categoryChanged}>
+        <h2 className="Add-Title">ADD NEW BOOK</h2>
+        <input className="Input1" type="text" name="title" value={title} onChange={titleChanged} placeholder="Book Title" required />
+        <select className="Input2" name="category" value={category} placeholder="Category" onChange={categoryChanged} required>
           <option value="Drama">Drama</option>
           <option value="Action">Action</option>
         </select>
-        <input type="submit" value="ADD BOOK" onClick={submitBookToStore} />
+        <input className="Input3" type="submit" value="ADD BOOK" onClick={submitBookToStore} />
       </form>
     </div>
   );
