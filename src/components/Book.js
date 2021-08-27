@@ -30,7 +30,7 @@ const Book = (props) => {
         <div className="Book-Edits">
           <button type="button" className="Edit-Item">Comments</button>
           <span className="Edit-Item">|</span>
-          <button type="button" className="Edit-Item" onClick={removesBook}>Remove</button>
+          <button type="button" className="Edit-Item Edit-Item2" onClick={removesBook}>Remove</button>
           <span className="Edit-Item">|</span>
           <button type="button" className="Edit-Item">Edit</button>
         </div>
