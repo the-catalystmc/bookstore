@@ -29,7 +29,7 @@ const Form = () => {
   };
 
   return (
-    <div>
+    <div className="Form">
       <form>
         <h2 className="Add-Title">ADD NEW BOOK</h2>
         <input className="Input1" type="text" name="title" value={title} onChange={titleChanged} placeholder="Book Title" required />
