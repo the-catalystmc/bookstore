@@ -99,6 +99,18 @@
   justify-content: space-between;
 }
 
+.Completion {
+display: flex;
+}
+
+.Circle {
+  width: 4.25rem;
+  height: 4.25rem;
+  border-radius: 50%;
+  border: #307bbe solid 5px;
+
+}
+
 .Partition {
   border-left: 1px solid black;
   height: 80%;
