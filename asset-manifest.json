@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/the-catalystmc/bookstore/static/css/main.e81b2057.chunk.css",
+    "main.js": "/the-catalystmc/bookstore/static/js/main.ffcb32f6.chunk.js",
+    "main.js.map": "/the-catalystmc/bookstore/static/js/main.ffcb32f6.chunk.js.map",
+    "runtime-main.js": "/the-catalystmc/bookstore/static/js/runtime-main.fb608eb3.js",
+    "runtime-main.js.map": "/the-catalystmc/bookstore/static/js/runtime-main.fb608eb3.js.map",
+    "static/js/2.a462d604.chunk.js": "/the-catalystmc/bookstore/static/js/2.a462d604.chunk.js",
+    "static/js/2.a462d604.chunk.js.map": "/the-catalystmc/bookstore/static/js/2.a462d604.chunk.js.map",
+    "index.html": "/the-catalystmc/bookstore/index.html",
+    "static/css/main.e81b2057.chunk.css.map": "/the-catalystmc/bookstore/static/css/main.e81b2057.chunk.css.map",
+    "static/js/2.a462d604.chunk.js.LICENSE.txt": "/the-catalystmc/bookstore/static/js/2.a462d604.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fb608eb3.js",
+    "static/js/2.a462d604.chunk.js",
+    "static/css/main.e81b2057.chunk.css",
+    "static/js/main.ffcb32f6.chunk.js"
+  ]
+}
