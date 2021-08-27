@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Slab:wght@300;700&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -68,12 +69,12 @@ nav {
   font-style: normal;
   line-height: normal;
   letter-spacing: 1.9px;
-  color: #776666;
+  color: #766;
 }
 
 .Nav-Item1 a {
   text-decoration: none;
-  color: inherit;  
+  color: inherit;
 }
 
 .Nav-Item2 {
@@ -87,11 +88,12 @@ nav {
   font-style: normal;
   line-height: normal;
   letter-spacing: 1.9px;
-  color: #776666;}
+  color: #766;
+}
 
 .Nav-Item2 a {
   text-decoration: none;
-  color: inherit;  
+  color: inherit;
 }
 
 .user {
@@ -99,7 +101,7 @@ nav {
   height: 2.813rem;
   padding: 0.875rem;
   border-radius: 50%;
-  border: solid 1px #e8e8e8; 
+  border: solid 1px #e8e8e8;
   background-color: #fff;
 }
 
