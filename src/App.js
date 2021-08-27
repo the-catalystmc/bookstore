@@ -11,7 +11,7 @@ import Books from './components/Books';
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <div className="App">
             <NavBar />
