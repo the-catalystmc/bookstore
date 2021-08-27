@@ -15,7 +15,7 @@ A bookstore app that displays books. It also allows users to add and remove book
 
 
 # Screenshots
-![screenshot](./download1.jpeg)
+![screenshot](./screenshot.jpeg)
 
 ## Live Demo
 You can see my page live here: 
