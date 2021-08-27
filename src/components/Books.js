@@ -20,6 +20,7 @@ const Books = () => {
   return (
     <div className="Main-Holder">
       <ul className="Books-Holder">{updateBooks}</ul>
+      <div className="Border" />
       <Form />
     </div>
   );

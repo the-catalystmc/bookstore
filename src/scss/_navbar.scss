@@ -15,7 +15,7 @@
 .App {
   width: 100%;
   margin: 0 2.5rem 4.063rem 0;
-  padding: 0 0 20rem 0;
+  padding: 0 0 17rem 0;
   border-radius: 4px;
   box-shadow: 0 0 60px 0 rgba(0, 0, 0, 0.05);
   background-color: #fafafa;
@@ -33,6 +33,7 @@
 }
 
 .Nav-Container h1 {
+  width: 20rem;
   font-family: 'Montserrat', sans-serif;
   font-size: 1.875rem;
   font-weight: bold;
@@ -47,6 +48,13 @@
   display: flex;
   list-style: none;
   font-family: 'Montserrat', sans-serif;
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .Nav-Item1 {
@@ -84,4 +92,19 @@
 .Nav-Item2 a {
   text-decoration: none;
   color: inherit;  
+}
+
+.user {
+  width: 2.813rem;
+  height: 2.813rem;
+  padding: 0.875rem;
+  border-radius: 50%;
+  border: solid 1px #e8e8e8; 
+  background-color: #fff;
+}
+
+.userIcon {
+  width: 1.063rem;
+  height: 1.063rem;
+  color: #0290ff;
 }
